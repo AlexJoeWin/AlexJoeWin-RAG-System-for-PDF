@@ -115,10 +115,11 @@ docker build -t rag-pipeline .
 ### 🚀 Run the Container
 
 ```bash
-docker run --env-file .env rag-pipeline
+docker run --env-file .env -v "$PWD/data:/app/data" rag-pipeline
 ```
 
 -   `--env-file .env` injects your API keys and config variables.
+-   `-v "$PWD/data:/app/data"` mounts `data` with PDFs into the container.
 -   Make sure `.env` is in the same folder where you run this command, or provide a full path.
 
 
