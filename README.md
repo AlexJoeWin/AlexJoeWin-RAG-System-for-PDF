@@ -1,6 +1,6 @@
-# 🧠 Modular RAG pipeline for PDF based retrieval
+# 🧠 RAG Pipeline for PDFs — modular & containerized
 
-This project implements a reproducible Retrieval-Augmented Generation (RAG) pipeline using LangChain, PyPDFLoader, OpenAI embeddings, GPT-4, and Chroma vectorstore. It supports multilingual queries, modular architecture, and context-aware prompting for (hopeful) minimal hallucinations.
+This project implements a reproducible, Docker-ready Retrieval-Augmented Generation (RAG) pipeline using LangChain, PyPDFLoader, OpenAI embeddings, GPT-4, and Chroma vectorstore. It supports modular architecture, and context-aware prompting for (hopeful) minimal hallucinations.
 
 ---
 
@@ -55,6 +55,7 @@ The folder `/chroma_db` is automatically created.
 -   ✅ MMR retrieval (provided best results among different setups)
 -   ✅ Context-bound prompting with fallback logic
 -   ✅ Modular components for easy testing and extension
+-   ✅ Full Docker support for isolated environments and secure `.env` injection
 
 ----------
 
@@ -96,6 +97,57 @@ If no input is provided, a test query is created:
 Who is named in the text? Include no meta data!
 ```
 ----------
+
+## 🐳 Docker Support
+
+
+### 📦 Build the Docker Image
+
+```bash
+docker build -t rag-pipeline .
+```
+
+-   `rag-pipeline` is the image name — change it if needed.
+-   The build uses `python:3.11-slim` and creates a virtual environment inside the container.
+
+----------
+
+### 🚀 Run the Container
+
+```bash
+docker run --env-file .env rag-pipeline
+```
+
+-   `--env-file .env` injects your API keys and config variables.
+-   Make sure `.env` is in the same folder where you run this command, or provide a full path.
+
+
+
+----------
+
+### 📁 Recommended `.dockerignore`
+
+```dockerignore
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Secrets and local data
+.env
+data/
+chroma_db/
+
+# Git
+.git/
+.gitignore
+```
+
+This keeps your image clean and secure by excluding local caches, data, and version history.
+
+----------
+
 ## ⚠️ Note  
 The system was tested with one page PDF files containing plain text. Technically, PyPDFLoader should be able to handle PDF files with multiple pages, too.
 
