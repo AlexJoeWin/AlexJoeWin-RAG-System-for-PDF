@@ -36,8 +36,8 @@ Create a `.env` file:
     OPENAI_TOKEN=your-api-key-here
     ```
     
-3.  **Drop PDFs into `/data`**  
-This folder is automatically created if missing.
+3.  **Create `/data` and drop PDFs there**  
+The folder `/chroma_db` is automatically created.
 
 
 4.  **Run the pipeline**
