@@ -95,6 +95,11 @@ If no input is provided, a test query is created:
 ```text
 Who is named in the text? Include no meta data!
 ```
+----------
+## ⚠️ Note  
+The system was tested with one page PDF files containing plain text. Technically, PyPDFLoader should be able to handle PDF files with multiple pages, too.
+
+For more structured PDF files (with layout elements such as tables, columns, headers, sections, etc.) more advanced layout-aware models, which understand both the text and its spatial arrangement on the page, might be more beneficial.
 
 ----------
 
