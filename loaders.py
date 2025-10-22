@@ -8,8 +8,8 @@ def load_pdf(filepath):
         print(f"No PDFs found in {filepath}. Drop your files there and rerun the script.")
 
     all_docs = []
-    for file_path in pdf_files:
-        loader = PyPDFLoader(file_path)
+    for file in pdf_files:
+        loader = PyPDFLoader(file)
         docs = loader.load()
         all_docs.extend(docs)
     return all_docs
