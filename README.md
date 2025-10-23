@@ -165,4 +165,5 @@ For more structured PDF files (with layout elements such as tables, columns, hea
 
 ## 📖 License
 
-MIT License. See `LICENSE.md`
+This project is licensed under MIT License. See `LICENSE.md`  
+You are free to use, modify, and distribute this code for personal or commercial purposes, provided that the original copyright and license notice are retained.
