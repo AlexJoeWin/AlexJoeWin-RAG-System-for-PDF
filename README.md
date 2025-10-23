@@ -25,22 +25,29 @@ rag_project/
 
 ## 🚀 Quickstart
 
-1. **Install dependencies**
+1. **Create and activate a virtual environment**  
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # or .venv\Scripts\activate on Windows  
+    ```
+
+2. **Install dependencies**
    ```bash
    pip install -r requirements.txt
+   ```
 
-2.  **Add your OpenAI key**  
-Create a `.env` file:
+3. **Add your OpenAI key**  
+    Create a `.env` file with:
     
     ```env
     OPENAI_TOKEN=your-api-key-here
     ```
     
-3.  **Create `/data` and drop PDFs there**  
+4. **Create a folder `/data` and drop PDFs there**  
 The folder `/chroma_db` is automatically created.
 
 
-4.  **Run the pipeline**
+5. **Run the pipeline**
     
     ```bash
     python main.py
