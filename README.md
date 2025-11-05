@@ -37,13 +37,13 @@ rag_project/
    ```
 
 3. **Add your OpenAI key**  
-    Create a `.env` file with:
+    Create a `.env` file within the file directory with:
     
     ```env
     OPENAI_TOKEN=your-api-key-here
     ```
     
-4. **Create a folder `data` and drop PDFs there**  
+4. **Create a folder `data` within the file directory and drop PDFs there**  
 The folder `chroma_db` is automatically created.
 
 
@@ -127,7 +127,8 @@ docker run -it --env-file "C:\path\to\.env" `
    rag-pipeline
 ```
 
--  `-it` is required to run the container interactively
+-  Update `C:\path\to\` to match the location of your files.
+- `-it` is required to run the container interactively
 - `--env-file .env` injects your API keys.
 -   `-v "C:\path\to\data:/data"` mounts `data` with PDFs into the container.
 
