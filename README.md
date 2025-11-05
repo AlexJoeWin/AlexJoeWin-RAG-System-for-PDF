@@ -43,8 +43,8 @@ rag_project/
     OPENAI_TOKEN=your-api-key-here
     ```
     
-4. **Create a folder `/data` and drop PDFs there**  
-The folder `/chroma_db` is automatically created.
+4. **Create a folder `data` and drop PDFs there**  
+The folder `chroma_db` is automatically created.
 
 
 5. **Run the pipeline**
@@ -120,14 +120,16 @@ docker build -t rag-pipeline .
 ----------
 
 ### 🚀 Run the Container
-
-```bash
-docker run --env-file .env -v "$PWD/data:/app/data" rag-pipeline
+in **Windows PowerShell**:
+```Windows PowerShell
+docker run -it --env-file "C:\path\to\.env" `
+   -v "C:\path\to\data:/data" `
+   rag-pipeline
 ```
 
--   `--env-file .env` injects your API keys and config variables.
--   `-v "$PWD/data:/app/data"` mounts `data` with PDFs into the container.
--   Make sure `.env` is in the same folder where you run this command, or provide a full path.
+-  `-it` is required to run the container interactively
+- `--env-file .env` injects your API keys.
+-   `-v "C:\path\to\data:/data"` mounts `data` with PDFs into the container.
 
 
 

@@ -1,4 +1,4 @@
-from config import PDF_DIR, CHROMA_DIR, OPENAI_TOKEN, CHUNK_SIZE, CHUNK_OVERLAP
+from config import CHROMA_DIR, OPENAI_TOKEN, CHUNK_SIZE, CHUNK_OVERLAP
 from langchain_openai import ChatOpenAI
 
 from loaders import load_pdf
@@ -9,8 +9,11 @@ from retriever import get_retriever
 from prompt import get_prompt
 from rag_chain import build_rag_chain
 from query import ask_question
+from pathlib import Path
 
 def main():
+    PDF_DIR = Path("/data") if Path("/data").exists() else Path("data")
+    print(PDF_DIR)
     docs = load_pdf(PDF_DIR)
     split_docs = split_documents(docs, CHUNK_SIZE, CHUNK_OVERLAP)
     embeddings = get_embeddings()
